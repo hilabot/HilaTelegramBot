@@ -53,7 +53,7 @@ const wakeUp = () => {
 
 app.listen(PORT, function () {
   console.log(`Bot is running at port ${PORT}`);
-  setTimeout(() => {
+  setInterval(() => {
     wakeUp();
   }, 1200000);
 });
