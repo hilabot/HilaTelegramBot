@@ -5,7 +5,7 @@ const fetch = require("node-fetch");
 const app = express();
 
 const token = "5023032656:AAHZmjP1oTCf0aMneXmd5aINMzaXTKxDcCc";
-// const heroku_app_name = "hila-pniot-bot";
+const heroku_app_name = "hila-pniot-bot";
 
 const bot = new TelegramBot(token, {
   polling: true,
@@ -41,16 +41,19 @@ bot.on("callback_query", function onCallbackQuery(callbackQuery) {
 
 const PORT = process.env.PORT || 3000;
 
-// const wakeUp = () => {
-//   fetch(`https://${heroku_app_name}.herokuapp.com/`)
-//     .then(() => {
-//       console.log("Waking up heroku");
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
+const wakeUp = () => {
+  fetch(`https://${heroku_app_name}.herokuapp.com/`)
+    .then(() => {
+      console.log("Waking up heroku");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 
 app.listen(PORT, function () {
   console.log(`Bot is running at port ${PORT}`);
+  setTimeout(() => {
+    wakeUp();
+  }, 1200000);
 });
