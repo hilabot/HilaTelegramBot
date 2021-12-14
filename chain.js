@@ -632,6 +632,12 @@ const levelTestInformation = {
             callback_data: "registerLevelTests",
           },
         ],
+		[
+          {
+            text: 'תהליך רישום לקורס שלב בסקו"פ',
+            callback_data: "registerLevelTestsScoop",
+          },
+        ],
         [
           {
             text: "מידע על תעודה לצורך שלב",
@@ -684,6 +690,25 @@ const noLevelTests = {
 };
 
 const registerLevelTests = {
+  text: `הרשמה לקורס שלב מתבצעת דרך רשם הקורסים היחידתי באתר ה'מרש"ל'. 
+מחפשים את הקורס הרצוי -> יופיעו תאריכי המחזורים הקרובים -> יש לציין בהערות שההרשמה עבור שלב 
+  `,
+  opts: {
+    parse_mode: "HTML",
+    reply_markup: JSON.stringify({
+      inline_keyboard: [
+        [
+          {
+            text: "חזרה",
+            callback_data: "levelTestInformation",
+          },
+        ],
+      ],
+    }),
+  },
+};
+
+const registerLevelTestsScoop = {
   text: `ראשית, יש לבחור קורס אחד מתוך רשימת הקורסים שמוכרים לשלב
   לאחר מכן הרישום יתבצע בשני מישורים במקביל:
   1.	כל חייל יכנס וימלא את פרטיו באחד מין הקישורים:
@@ -1174,6 +1199,7 @@ const responsesMap = {
   allowedLevelTests,
   noLevelTests,
   registerLevelTests,
+  registerLevelTestsScoop,
   diplomaLevelTests,
   scoopInformation,
   whatIsScoop,
