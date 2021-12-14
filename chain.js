@@ -33,6 +33,7 @@ const main = {
         [{ text: 'מידע על סקו"פ', callback_data: "scoopInformation" }],
         [{ text: "שאלות נפוצות", callback_data: "commonQuestions" }],
         [{ text: "דרכי תקשורת ושעות פעילות", callback_data: "contactUs" }],
+		[{ text: 'מסלול מה"ט לתוכניתנים', callback_data: "mahat" }],
       ],
     }),
   },
@@ -727,6 +728,7 @@ const diplomaLevelTests = {
     }),
   },
 };
+
 ////////////////////////////////
 // 5 - סקופ
 const scoopInformation = {
@@ -963,6 +965,183 @@ const contactUs = {
     }),
   },
 };
+
+////////////////////////////
+// 8 - מהט
+const mahat = {
+  text: `שאלות נפוצות`,
+  opts: {
+    parse_mode: "HTML",
+    reply_markup: JSON.stringify({
+      inline_keyboard: [
+        [
+          {
+            text: `?מהו מסלול מה"ט`,
+            callback_data: "whatIsMahat",
+          },
+        ],
+        [
+          {
+            text: `?מהם הקורסים הרשתיים המוכרים למסלול`,
+            callback_data: "coursesForMahat",
+          },
+        ],
+        [
+          {
+            text: `?האם ניתן להכיר בקורסים נוספים למסלול`,
+            callback_data: "mahatAndGmosh",
+          },
+        ],
+        [
+          {
+            text: `?האם ניתן להגיש את פרויקט הגמר בזוגות`,
+            callback_data: "gmarInCouples",
+          },
+        ],
+        [
+          {
+            text: `?מה הדרישות של מנחה מקצועי לפרויקט`,
+            callback_data: "mahatManhe",
+          },
+        ],
+		        [
+          {
+            text: `?איפה אוכל למצוא הנחיות לפרויקט הגמר`,
+            callback_data: "mahatHnhaiot",
+          },
+        ],
+        [
+          {
+            text: "חזרה לתפריט הראשי",
+            callback_data: "main",
+          },
+        ],
+      ],
+    }),
+  },
+};
+
+const whatIsMahat =  {
+  text: `מסלול מה״ט – המכון הממשלתי להכשרה טכנולוגית, הוא מסלול מקצועי של משרד העבודה והרווחה המיועד למסיימי קורס תכנות ארוך,
+ שבסופו לאחר עמידה בתנאי המסלול, ניתן לקבל תעודת טכנאי במגמת הנדסת תוכנה.`,
+  opts: {
+    parse_mode: "HTML",
+    reply_markup: JSON.stringify({
+      inline_keyboard: [
+        [
+          {
+            text: "חזרה",
+            callback_data: "mahat",
+          },
+        ],
+      ],
+    }),
+  },
+};
+
+const coursesForMahat =  {
+  text: `פיתוח מאובטח
+מבוא לתקש״ן
+‏Angular 8
+‏Python
+(שני הקורסים הנוספים MongoDB וSQL ייכנסו בקרוב)
+שימו לב, קורסים מהרשימה הנ״ל אשר בוצעו בבסמ״ח באופן פרונטלי מוכרים גם הם למסלול.
+`,
+  opts: {
+    parse_mode: "HTML",
+    reply_markup: JSON.stringify({
+      inline_keyboard: [
+        [
+          {
+            text: "חזרה",
+            callback_data: "mahat",
+          },
+        ],
+      ],
+    }),
+  },
+};
+
+const mahatAndGmosh =  {
+  text: `האם קורסים שבוצעו בבסמ"ח אך אינם נכללים ברשימת 6 ההשתלמויות המוכרות - יכולים להיות מוכרים למסלול מה"ט?
+ייתכן שכן, במידה וביצעתם קורסים החופפים לקורסים הנדרשים, ניתן לשלוח למייל- mahat.basmach@gmail.com 
+את הפרטים הבאים והבקשה תיבחן: שם מלא, תעודת זהות, שם הקורס שביצעתם, הקורס המכללה/ המוסד בו עבר הקורס, סילבוס.
+`,
+  opts: {
+    parse_mode: "HTML",
+    reply_markup: JSON.stringify({
+      inline_keyboard: [
+        [
+          {
+            text: "חזרה",
+            callback_data: "mahat",
+          },
+        ],
+      ],
+    }),
+  },
+};
+
+const gmarInCouples =  {
+  text: `ניתן להגיש את הפרויקט בזוגות, אך הפרויקט יהיה מותאם בהיקפו וברמתו לעבודה של שניים. חלוקת תחומי האחריות בפרויקט תוגדר מראש. ההגנה על הפרויקט תתבצע בנפרד.`,
+  opts: {
+    parse_mode: "HTML",
+    reply_markup: JSON.stringify({
+      inline_keyboard: [
+        [
+          {
+            text: "חזרה",
+            callback_data: "mahat",
+          },
+        ],
+      ],
+    }),
+  },
+};
+
+const mahatManhe =  {
+  text: `על המנחה המקצועי לעמוד בדרישות הסף הבאות:
+1.אקדמאי בעל תואר בתחום בו עוסק פרויקט הגמר.
+2.בעל ניסיון מקצועי של מספר שנים בתחום בו עוסק פרויקט הגמר.
+3.רצוי ניסיון בתחום הדידקטי.
+4.על המנחה המקצועי להנחות אתכם ולעמוד לרשותכם עד לסיום העבודה על הפרויקט.
+5.המנחה המקצועי יהיה נוכח במבחן ההגנה על הפרויקט ויהיה חבר בוועדה הבוחנת.
+`,
+  opts: {
+    parse_mode: "HTML",
+    reply_markup: JSON.stringify({
+      inline_keyboard: [
+        [
+          {
+            text: "חזרה",
+            callback_data: "mahat",
+          },
+        ],
+      ],
+    }),
+  },
+};
+
+const mahatHnhaiot =  {
+  text: `ניתן למצוא מידע אודות פרויקט הגמר בתיקיית התכנים בקישור הבא:
+https://drive.google.com/drive/folders/1fehI7K3ziE2H02wSXZv3qQzYSFCoZcDN?usp=sharing
+`,
+  opts: {
+    parse_mode: "HTML",
+    reply_markup: JSON.stringify({
+      inline_keyboard: [
+        [
+          {
+            text: "חזרה",
+            callback_data: "mahat",
+          },
+        ],
+      ],
+    }),
+  },
+};
+
+
 ////////////////////////////
 const responsesMap = {
   main,
@@ -1006,6 +1185,14 @@ const responsesMap = {
   coursesRasham,
   diplomaCourse,
   contactUs,
+  mahat,
+  whatIsMahat,
+  coursesForMahat,
+  mahatAndGmosh,
+  gmarInCouples,
+  mahatManhe,
+  mahatHnhaiot,
 };
+
 
 module.exports = { responsesMap };
